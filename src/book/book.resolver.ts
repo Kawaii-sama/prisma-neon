@@ -29,4 +29,9 @@ export class BookResolver {
         return this.bookService.update(input);
     }
 
+    @Mutation( () => Book)
+    deleteBook(@Args('id') id : string) {
+        return this.bookService.remove(id);
+    }
+
 }
