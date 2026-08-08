@@ -32,4 +32,8 @@ export class BookService {
             data : {title : data.title, author: data.author}
         })
     }
+
+    remove( id : string) {
+        return this.prisma.book.delete({where : { id }});
+    }
 }
