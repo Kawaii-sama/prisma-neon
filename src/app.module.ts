@@ -5,7 +5,11 @@ import { PrismaModule } from './prisma/prisma.module';
 import { BookModule } from './book/book.module';
 
 @Module({
-  imports: [PrismaModule, BookModule],
+  imports: [GraphQLModule.forRoot<ApolloDriverConfig>
+  ({
+
+  })
+  ,PrismaModule, BookModule],
   controllers: [AppController],
   providers: [AppService],
 })
