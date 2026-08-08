@@ -16,4 +16,8 @@ export class BookService {
     3. method would forward to prisma.
     4. prisma would create the record.
     */
+
+    findAll() {
+        return this.prisma.book.findMany();
+    }
 }
