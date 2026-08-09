@@ -17,7 +17,16 @@ import { BookModule } from './book/book.module';
     }),
     PrismaModule,
     BookModule,
-    ThrottlerModule.
+    ThrottlerModule.forRoot({
+      throttlers : [
+        {
+          name : 'default',
+          ttl : seconds(60),
+          limit : 3,
+        }
+      ],
+      error
+    })
   ],
   controllers: [AppController],
   providers: [AppService],
