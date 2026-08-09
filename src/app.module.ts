@@ -17,6 +17,7 @@ import { BookModule } from './book/book.module';
     }),
     PrismaModule,
     BookModule,
+    ThrottlerModule.
   ],
   controllers: [AppController],
   providers: [AppService],
