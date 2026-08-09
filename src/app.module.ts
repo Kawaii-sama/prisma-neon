@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { BookModule } from './book/book.module';
+import { ThrottlerModule, seconds} from '@nestjs/throttler';
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { BookModule } from './book/book.module';
           limit : 3,
         }
       ],
-      error
+      errorMessage : 'Too many requests! Please wait and retry',
     })
   ],
   controllers: [AppController],
