@@ -6,7 +6,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { BookModule } from './book/book.module';
-import { ThrottlerModule, seconds} from '@nestjs/throttler';
+import { ThrottlerGuard, ThrottlerModule, seconds} from '@nestjs/throttler';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -30,6 +31,9 @@ import { ThrottlerModule, seconds} from '@nestjs/throttler';
     })
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService , {
+    provide : APP_GUARD,
+    useClass : ThrottlerGuard
+  }],
 })
 export class AppModule {}
